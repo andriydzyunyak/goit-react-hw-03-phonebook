@@ -24,9 +24,24 @@ export class App extends Component {
       name,
       number,
     };
+    const { contacts } = this.state;
+    const nameNormalized = name.toLowerCase();
+    const uniqueName = contacts
+      .map(contact => contact.name.toLowerCase())
+      .includes(nameNormalized);
 
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
+    if (uniqueName) {
+      alert(`${name} is already in contacts`);
+    } else {
+      this.setState(({ contacts }) => ({
+        contacts: [contact, ...contacts],
+      }));
+    }
+  };
+
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
 
@@ -55,7 +70,10 @@ export class App extends Component {
         <Section>
           <h2>Contacts</h2>
           <Filter value={filter} onChange={this.changeFilter} />
-          <ContactList contacts={filteredContacts} />
+          <ContactList
+            contacts={filteredContacts}
+            onDeleteContact={this.deleteContact}
+          />
         </Section>
       </>
     );
