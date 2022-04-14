@@ -1,5 +1,4 @@
-//import { Component } from 'react';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import {
@@ -7,6 +6,7 @@ import {
   LabelName,
   SubmitButton,
   PhonebookForm,
+  ErrorText,
 } from 'components/ContactForm/ContactForm.styled';
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
 
 const schema = yup.object().shape({
   name: yup.string().required(),
-  number: yup.number().required(),
+  number: yup.string().required(),
 });
 
 export const ContactForm = addContact => {
@@ -39,7 +39,7 @@ export const ContactForm = addContact => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <ErrorMessage name="name" component="div" />
+        <ErrorText name="name" component="div" />
         <LabelName htmlFor={'number'}>Number</LabelName>
         <InputForm
           type="tel"
@@ -48,7 +48,7 @@ export const ContactForm = addContact => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <ErrorMessage name="number" component="div" />
+        <ErrorText name="number" component="div" />
         <SubmitButton type="submit">Add contact</SubmitButton>
       </PhonebookForm>
     </Formik>
