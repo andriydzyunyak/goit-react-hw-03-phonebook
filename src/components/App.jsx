@@ -30,15 +30,16 @@ export class App extends Component {
     };
     const { contacts } = this.state;
     const nameNormalized = name.toLowerCase();
-    const uniqueName = contacts
-      .map(contact => contact.name.toLowerCase())
-      .includes(nameNormalized);
+
+    const uniqueName = contacts.find(
+      contact => contact.name.toLowerCase() === nameNormalized
+    );
 
     if (uniqueName) {
       alert(`${name} is already in contacts`);
     } else {
       this.setState(({ contacts }) => ({
-        contacts: [contact, ...contacts],
+        contacts: [...contacts, contact],
       }));
     }
   };

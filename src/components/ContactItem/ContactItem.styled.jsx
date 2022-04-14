@@ -5,6 +5,7 @@ export const Contact = styled.li`
   font-weight: 400;
   font-size: 18px;
   line-height: 1.18;
+  text-transform: capitalize;
 
   &:not(:last-child) {
     margin-bottom: 5px;

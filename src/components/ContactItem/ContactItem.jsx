@@ -8,7 +8,7 @@ import {
 export const ContactItem = ({ id, name, number, onDelete }) => {
   return (
     <Contact key={id}>
-      {name}:<ContactNumber>{number}</ContactNumber>
+      {name.toLowerCase()}:<ContactNumber>{number}</ContactNumber>
       <ContactDeleteButton type="button" onClick={() => onDelete(id)}>
         Delete
       </ContactDeleteButton>
@@ -17,8 +17,8 @@ export const ContactItem = ({ id, name, number, onDelete }) => {
 };
 
 ContactItem.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  number: PropTypes.string,
-  onDelete: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
