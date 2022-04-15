@@ -8,7 +8,7 @@ import {
 export const ContactItem = ({ id, name, number, onDelete }) => {
   return (
     <Contact key={id}>
-      {name.toLowerCase()}:<ContactNumber>{number}</ContactNumber>
+      {name}:<ContactNumber>{number}</ContactNumber>
       <ContactDeleteButton type="button" onClick={() => onDelete(id)}>
         Delete
       </ContactDeleteButton>

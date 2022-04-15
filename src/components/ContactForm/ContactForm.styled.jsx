@@ -23,6 +23,10 @@ export const InputForm = styled(Field)`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.18;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const ErrorText = styled(ErrorMessage)`

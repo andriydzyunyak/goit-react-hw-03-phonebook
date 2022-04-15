@@ -19,11 +19,12 @@ const schema = yup.object().shape({
   number: yup.string().required(),
 });
 
-export const ContactForm = addContact => {
-  const handleSubmit = (values, actions) => {
-    addContact.onSubmit(values);
-    actions.resetForm();
+export const ContactForm = ({ onSubmit }) => {
+  const handleSubmit = (values, { resetForm }) => {
+    onSubmit(values);
+    resetForm();
   };
+
   return (
     <Formik
       initialValues={initialState}
@@ -31,7 +32,7 @@ export const ContactForm = addContact => {
       onSubmit={handleSubmit}
     >
       <PhonebookForm autoComplete="off">
-        <LabelName htmlFor={'name'}>Name</LabelName>
+        <LabelName htmlFor="name">Name</LabelName>
         <InputForm
           type="text"
           name="name"
@@ -40,7 +41,7 @@ export const ContactForm = addContact => {
           required
         />
         <ErrorText name="name" component="div" />
-        <LabelName htmlFor={'number'}>Number</LabelName>
+        <LabelName htmlFor="number">Number</LabelName>
         <InputForm
           type="tel"
           name="number"
@@ -57,5 +58,4 @@ export const ContactForm = addContact => {
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  addContact: PropTypes.func.isRequired,
 };
