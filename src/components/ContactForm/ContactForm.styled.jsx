@@ -3,7 +3,7 @@ import { Form, Field, ErrorMessage } from 'formik';
 
 export const PhonebookForm = styled(Form)`
   border: 1px solid #2a2a2a;
-  width: 380px;
+  width: 340px;
   padding: 10px;
 `;
 
