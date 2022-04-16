@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 
 export const SectionContainer = styled.section`
-  padding-top: 30px;
-  padding-left: 30px;
-  width: 380px;
+  padding: 30px;
+  width: 400px;
 `;
 
 export const FormTitle = styled.h1`

@@ -5,11 +5,11 @@ import {
   ContactNumber,
 } from 'components/ContactItem/ContactItem.styled';
 
-export const ContactItem = ({ id, name, number, onDelete }) => {
+export const ContactItem = ({ name, number, onDelete }) => {
   return (
-    <Contact key={id}>
+    <Contact>
       {name}:<ContactNumber>{number}</ContactNumber>
-      <ContactDeleteButton type="button" onClick={() => onDelete(id)}>
+      <ContactDeleteButton type="button" onClick={onDelete}>
         Delete
       </ContactDeleteButton>
     </Contact>

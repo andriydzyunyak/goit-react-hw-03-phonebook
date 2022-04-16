@@ -11,7 +11,7 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
           id={id}
           name={name}
           number={number}
-          onDelete={onDeleteContact}
+          onDelete={() => onDeleteContact(id)}
         />
       ))}
     </ContactBook>
