@@ -20,8 +20,6 @@ export class App extends Component {
     filter: '',
   };
 
-  nameInputId = nanoid();
-
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
